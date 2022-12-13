@@ -1,4 +1,5 @@
 import {Component} from 'react'
+
 import './index.css'
 
 const countryAndCapitalsList = [
@@ -30,14 +31,17 @@ const countryAndCapitalsList = [
 ]
 
 class Capitals extends Component {
-  state = {activeCapitalId: countryAndCapitalsList[0].id}
+  state = {
+    activeCapitalId: countryAndCapitalsList[0].id,
+  }
 
-  changeCapital = event => {
+  onChangeCapital = event => {
     this.setState({activeCapitalId: event.target.value})
   }
 
   getCountry = () => {
     const {activeCapitalId} = this.state
+
     const activeCountryAndCapital = countryAndCapitalsList.find(
       eachCapital => eachCapital.id === activeCapitalId,
     )
@@ -47,26 +51,31 @@ class Capitals extends Component {
 
   render() {
     const {activeCapitalId} = this.state
-    const country = this.getCountry()
+    const country = this.getCountry(activeCapitalId)
+
     return (
       <div className="app-container">
-        <div className="capital-card-container">
-          <h1 className="main-heading">Countries And Capitals</h1>
-          <div className="option-container">
+        <div className="capitals-container">
+          <h1 className="heading">Countries And Capitals</h1>
+          <div className="question-container">
             <select
-              className="country-list"
+              className="capital-select"
+              onChange={this.onChangeCapital}
               value={activeCapitalId}
-              onChange={this.changeCapital}
             >
-              {countryAndCapitalsList.map(each => (
-                <option key={each.id} value={each.id}>
-                  {each.capitalDisplayText}
+              {countryAndCapitalsList.map(eachCapital => (
+                <option
+                  key={eachCapital.id}
+                  value={eachCapital.id}
+                  className="option"
+                >
+                  {eachCapital.capitalDisplayText}
                 </option>
               ))}
             </select>
-            <p className="question-text">is capital of which country?</p>
+            <p className="question">is capital of which country?</p>
           </div>
-          <p className="country-name">{country}</p>
+          <p className="country">{country}</p>
         </div>
       </div>
     )
