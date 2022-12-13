@@ -1,0 +1,59 @@
+.app-container {
+  background-color: #93c5fd;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.capital-card-container {
+  height: 300px;
+  width: 50%;
+  background-color: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 50px;
+  border-radius: 15px;
+}
+.main-heading {
+  color: #000000;
+  font-size: 24px;
+  font-family: 'Roboto';
+  font-weight: 600;
+}
+
+.option-container {
+  display: flex;
+
+  align-items: center;
+}
+
+.country-list {
+  height: 40px;
+  width: 200px;
+  border: 1px solid #cbd2d9;
+  border-radius: 3px;
+  padding-left: 10px;
+  font-family: 'Roboto';
+  font-size: 19px;
+  color: #323f4b;
+  font-weight: bold;
+  outline: none;
+}
+.question-text {
+  color: #323f4b;
+  font-family: 'Roboto';
+  font-size: 19px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.country-name {
+  color: #1e293b;
+  font-family: 'Roboto';
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+}
